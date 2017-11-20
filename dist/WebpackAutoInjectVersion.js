@@ -1564,17 +1564,16 @@ var WebpackAutoInject = function () {
                 // execute component
                 inst = new ComponentClass(this);
 
-
-                console.log('main this', this);
                 // await for apply to finish
-                _context4.next = 11;
+
+                _context4.next = 10;
                 return inst.apply();
 
-              case 11:
-                _context4.next = 13;
+              case 10:
+                _context4.next = 12;
                 return this.executeComponent(components);
 
-              case 13:
+              case 12:
               case 'end':
                 return _context4.stop();
             }
@@ -2146,7 +2145,6 @@ var InjectByTag = function () {
   function InjectByTag(context) {
     (0, _classCallCheck3.default)(this, InjectByTag);
 
-    console.log('InjectByTag', context);
     this.context = context;
   }
 

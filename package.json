@@ -1,6 +1,6 @@
 {
   "name": "webpack-auto-inject-version-with-fix",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "repository": "https://github.com/tstrilogy/webpack-auto-inject-version-with-fix",
   "description": "Webpack plugin for auto inject version from package.json",
   "main": "dist/WebpackAutoInjectVersion.js",
