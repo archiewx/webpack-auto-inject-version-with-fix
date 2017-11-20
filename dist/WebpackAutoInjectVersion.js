@@ -1387,6 +1387,7 @@ var WebpackAutoInject = function () {
     this.setConfig(userConfig);
     var packageFile = JSON.parse(_fs2.default.readFileSync(_path2.default.resolve(this.config.PACKAGE_JSON_PATH), 'utf8'));
     this.version = packageFile.version;
+    this.build = packageFile.build;
     _log2.default.call('info', 'AIS_START');
     this.executeNoneWebpackComponents();
   }
@@ -1563,16 +1564,17 @@ var WebpackAutoInject = function () {
                 // execute component
                 inst = new ComponentClass(this);
 
-                // await for apply to finish
 
-                _context4.next = 10;
+                console.log('main this', this);
+                // await for apply to finish
+                _context4.next = 11;
                 return inst.apply();
 
-              case 10:
-                _context4.next = 12;
+              case 11:
+                _context4.next = 13;
                 return this.executeComponent(components);
 
-              case 12:
+              case 13:
               case 'end':
                 return _context4.stop();
             }
@@ -2090,7 +2092,7 @@ exports.default = {
   version: function version(context) {
     return context.version;
   },
-  fix: function fix(context) {
+  build: function build(context) {
     return context.build;
   },
   date: function date() {
@@ -2144,6 +2146,7 @@ var InjectByTag = function () {
   function InjectByTag(context) {
     (0, _classCallCheck3.default)(this, InjectByTag);
 
+    console.log('InjectByTag', context);
     this.context = context;
   }
 

@@ -13,6 +13,7 @@ export default class InjectByTag {
   static AIVTagRegexp = /(\[AIV])(([a-zA-Z{} :;!()_@\-"'\\\/])+)(\[\/AIV])/g;
 
   constructor(context) {
+    console.log('InjectByTag', context);
     this.context = context;
   }
 
