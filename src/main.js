@@ -100,7 +100,6 @@ export default class WebpackAutoInject {
     // execute component
     let inst = new ComponentClass(this);
 
-    console.log('main this', this);
     // await for apply to finish
     await inst.apply();
 
