@@ -5,7 +5,7 @@ export default {
   version: (context) => {
     return context.version;
   },
-  fix: (context) => {
+  build: (context) => {
     return context.build;
   },
   date: () => {

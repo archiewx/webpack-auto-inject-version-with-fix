@@ -23,6 +23,7 @@ export default class WebpackAutoInject {
       fs.readFileSync(path.resolve(this.config.PACKAGE_JSON_PATH), 'utf8')
     );
     this.version = packageFile.version;
+    this.build = packageFile.build;
     log.call('info', 'AIS_START');
     this.executeNoneWebpackComponents();
   }
