@@ -58,6 +58,8 @@ export default class AutoIncreaseVersion {
       this.minor();
     } else if (isArgv('patch')) {
       this.patch();
+    } else if (isArgv('fix')) {
+      this.fix();
     } else {
       this.resolve();
     }
@@ -84,7 +86,10 @@ export default class AutoIncreaseVersion {
    * Close & save package file
    * @param newVersion
    */
-  closePackageFile(newVersion) {
+  closePackageFile(newVersion, build) {
+    if (build) {
+      this.packageFile.build = build;
+    }
     this.packageFile.version = newVersion;
     fs.writeFile(
       path.resolve(this.context.config.PACKAGE_JSON_PATH),
@@ -97,6 +102,10 @@ export default class AutoIncreaseVersion {
         log.info(`autoIncVersion : new version : ${newVersion}`);
         log.info('package.json updated!');
         this.context.version = newVersion;
+        if (build) {
+          this.context.build = build;
+          log.info(`fix version ${build}`);
+        }
         this.resolve();
         return true;
       });
@@ -124,5 +133,14 @@ export default class AutoIncreaseVersion {
   patch() {
     let newVersion = semver.inc(this.packageFile.version, 'patch');
     this.closePackageFile(newVersion);
+  }
+
+  /**
+   * Increase bug fix
+   */
+  fix() {
+    const build = Number(this.packageFile.build) + 1;
+    const newVersion = this.packageFile.version;
+    this.closePackageFile(newVersion, build);
   }
 }

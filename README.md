@@ -1,10 +1,11 @@
 # Auto inject version - Webpack plugin
 Adds version from package.json into every single file as top comment block.
+forked from webpack-auto-inject-version-with-fix
 
 # Install
 
 ```console
-$ npm install webpack-auto-inject-version --save-dev
+$ npm install webpack-auto-inject-version-with-fix --save-dev
 ```
 
 # Table of Contents
@@ -89,7 +90,7 @@ module.exports = {
 ```
 <body>
   <span>
-    [AIV]{version}[/AIV]
+    [AIV]{version}(fix-version)[/AIV]
   </span>
   <span>
     [AIV]{date}[/AIV]

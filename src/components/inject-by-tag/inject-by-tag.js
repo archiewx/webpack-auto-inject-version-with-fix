@@ -41,6 +41,11 @@ export default class InjectByTag {
               return this.context.version;
             });
 
+            // handle FIX version
+            tag = tag.replace(/(\{)(fix-version)(\})/g, () => {
+              return this.context.build;
+            });
+
             // handle date
             tag = tag.replace(/(\{)(date)(\})/g, () => {
               return dateFormat(new Date(), config.componentsOptions.InjectByTag.dateFormat);
@@ -65,6 +70,8 @@ export default class InjectByTag {
       }
       cb();
     });
-    return new Promise((resolve) => { resolve(); });
+    return new Promise((resolve) => {
+      resolve();
+    });
   }
 }
